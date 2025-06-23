@@ -59,7 +59,7 @@ export default function HomePage() {
 </Breadcrumb>
 
       <Avatar className="w-20 h-20 mx-auto">
-        <AvatarImage src="app/assets/x4-256.png" />
+        <AvatarImage src="X4.png" />
         <AvatarFallback>BS</AvatarFallback>
       </Avatar>
       <h1 className="text-xl font-bold text-center">Brijraj Singh Bhati</h1>
@@ -82,8 +82,8 @@ export default function HomePage() {
                     </DrawerTrigger>
                     <DrawerContent>
                       <DrawerHeader>
-                        <DrawerTitle>Proceed to link</DrawerTitle>
-                        <DrawerDescription>You Will Now Visit X4 Creatives Page</DrawerDescription>
+                        <DrawerTitle>Proceed to Page</DrawerTitle>
+                        <DrawerDescription>X4 is a personal space where I curate and showcase my work, serving as a comprehensive portfolio that highlights my creativity, technical skills, and innovative projects.</DrawerDescription>
                       </DrawerHeader>
                       <DrawerFooter>
                         <Button asChild>

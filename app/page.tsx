@@ -45,11 +45,11 @@ export default function HomePage() {
     </BreadcrumbItem>
     <BreadcrumbSeparator />
     <BreadcrumbItem>
-      <BreadcrumbLink href="/components">...</BreadcrumbLink>
+      <BreadcrumbLink href="/">...</BreadcrumbLink>
     </BreadcrumbItem>
     <BreadcrumbSeparator />
     <BreadcrumbItem>
-      <BreadcrumbLink href="/components">Brijraj Singh Bhati</BreadcrumbLink>
+      <BreadcrumbLink href="/">Brijraj Singh Bhati</BreadcrumbLink>
     </BreadcrumbItem>
     <BreadcrumbSeparator />
     <BreadcrumbItem>
@@ -63,7 +63,7 @@ export default function HomePage() {
         <AvatarFallback>BS</AvatarFallback>
       </Avatar>
       <h1 className="text-xl font-bold text-center">Brijraj Singh Bhati</h1>
-      <p className="text-gray-500 text-center">Creating a minimal link hub</p>      
+      <p className="text-gray-500 text-center"><i>Dreams in Code, Builds in Full Metal</i></p>      
 
       <div className="space-y-2">
             <Card>
@@ -116,7 +116,13 @@ export default function HomePage() {
                     <DrawerContent>
                       <DrawerHeader>
                         <DrawerTitle>Proceed to link</DrawerTitle>
-                        <DrawerDescription>You Will Now Visit X4MD</DrawerDescription>
+                        <DrawerDescription asChild>
+                          <Avatar className="w-20 h-20 mx-auto">
+                            <AvatarImage src="X4MD.png" />
+                            <AvatarFallback>X4MD</AvatarFallback>
+                          </Avatar>
+                        </DrawerDescription>
+                        <DrawerDescription>X4MD is a AI-Assisted Command Line Interface written in python using Ollama's lightweight Gemma3:1b Model</DrawerDescription>
                       </DrawerHeader>
                       <DrawerFooter>
                         <Button asChild>
@@ -130,7 +136,48 @@ export default function HomePage() {
                   </Drawer>
                 </CardFooter>
               </Card>
-  
+
+
+              <Card>
+              <CardHeader>
+                <CardTitle>GPA Calculator</CardTitle>
+                <CardDescription>Calculator For NMIMS Students</CardDescription>
+                <CardAction>Tool</CardAction>
+              </CardHeader>
+              <CardContent>
+                <p>The GPA Calculator App is a smart and student-friendly tool that helps users plan their academic performance by allowing them to input their (ICA) marks and instantly calculating the minimum score needed in the (TEE) to pass or reach a specific academic threshold</p>
+                </CardContent>
+                <CardFooter>
+                  <Drawer>
+                    <DrawerTrigger className="w-full" asChild>
+                      <Button>Visit</Button>
+                    </DrawerTrigger>
+                    <DrawerContent>
+                      <DrawerHeader>
+                        <DrawerTitle>Launch Tool?</DrawerTitle>
+                        <DrawerDescription asChild>
+                          <Avatar className="w-20 h-20 mx-auto">
+                            <AvatarImage src="GPA.png" />
+                            <AvatarFallback>GPA</AvatarFallback>
+                          </Avatar>
+
+                        </DrawerDescription>
+                        <DrawerDescription>
+                          <p>The GPA Calculator App is a smart and student-friendly tool that helps users plan their academic performance</p>
+                        </DrawerDescription>
+                      </DrawerHeader>
+                      <DrawerFooter>
+                        <Button asChild>
+                          <a href="https://gpa-calculator-36.web.app/">Launch</a>
+                        </Button>
+                        <DrawerClose>
+                          <Button variant="outline">Cancel</Button>
+                        </DrawerClose>
+                      </DrawerFooter>
+                    </DrawerContent>
+                  </Drawer>
+                </CardFooter>
+              </Card>
       </div>
     </div>
   )

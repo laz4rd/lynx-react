@@ -1,103 +1,119 @@
-import Image from "next/image";
+'use client'
 
-export default function Home() {
+import { useState } from "react"
+import { Input } from "@/components/ui/input"
+import { Button } from "@/components/ui/button"
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer"
+import {
+  Card,
+  CardAction,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+
+export default function HomePage() {
+  const [links, setLinks] = useState<{ title: string; url: string }[]>([])
+  const [form, setForm] = useState({ title: "", url: "" })
+
+  const handleAddLink = () => {
+    if (form.title && form.url) {
+      setLinks([...links, form])
+      setForm({ title: "", url: "" })
+    }
+  }
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="max-w-md w-full space-y-4">
+      <Avatar className="w-20 h-20 mx-auto">
+        <AvatarImage src="app/assets/x4-256.png" />
+        <AvatarFallback>BS</AvatarFallback>
+      </Avatar>
+      <h1 className="text-xl font-bold text-center">Brijraj Singh Bhati</h1>
+      <p className="text-gray-500 text-center">Creating a minimal link hub</p>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      
+
+      <div className="space-y-2">
+            <Card>
+  <CardHeader>
+    <CardTitle>X4 Creative</CardTitle>
+    <CardDescription>Personal Portfolio</CardDescription>
+    <CardAction>Webpage</CardAction>
+  </CardHeader>
+  <CardContent>
+    <p>X4 is a personal space where I curate and showcase my work, serving as a comprehensive portfolio that highlights my creativity, technical skills, and innovative projects.</p>
+    </CardContent>
+    <CardFooter>
+      <Drawer>
+        <DrawerTrigger className="w-full" asChild>
+          <Button>Visit</Button>
+        </DrawerTrigger>
+        <DrawerContent>
+          <DrawerHeader>
+            <DrawerTitle>Proceed to link</DrawerTitle>
+            <DrawerDescription>You Will Now Visit X4 Creatives Page</DrawerDescription>
+          </DrawerHeader>
+          <DrawerFooter>
+            <Button asChild>
+              <a href="https://x4creative.framer.website">Proceed</a>
+            </Button>
+            <DrawerClose>
+              <Button variant="outline">Cancel</Button>
+            </DrawerClose>
+          </DrawerFooter>
+        </DrawerContent>
+      </Drawer>
+    </CardFooter>
+  </Card>
+
+
+  <Card>
+  <CardHeader>
+    <CardTitle>X4MD</CardTitle>
+    <CardDescription>AI-Assisted Command Line Interface</CardDescription>
+    <CardAction>Software</CardAction>
+  </CardHeader>
+  <CardContent>
+    <p>X4MD is a AI-Assisted Command Line Interface written in python using Ollama's lightweight Gemma3:1b Model</p>
+    </CardContent>
+    <CardFooter>
+      <Drawer>
+        <DrawerTrigger className="w-full" asChild>
+          <Button>Visit</Button>
+        </DrawerTrigger>
+        <DrawerContent>
+          <DrawerHeader>
+            <DrawerTitle>Proceed to link</DrawerTitle>
+            <DrawerDescription>You Will Now Visit X4MD</DrawerDescription>
+          </DrawerHeader>
+          <DrawerFooter>
+            <Button asChild>
+              <a href="https://x4md.framer.website">Proceed</a>
+            </Button>
+            <DrawerClose>
+              <Button variant="outline">Cancel</Button>
+            </DrawerClose>
+          </DrawerFooter>
+        </DrawerContent>
+      </Drawer>
+    </CardFooter>
+  </Card>
+  
+      </div>
     </div>
-  );
+  )
 }
+  

@@ -1,183 +1,38 @@
 'use client'
 
-import { useState } from "react"
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
-import {
-  Drawer,
-  DrawerClose,
-  DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerTrigger,
-} from "@/components/ui/drawer"
-import {
-  Card,
-  CardAction,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb"
 import { Separator } from "@/components/ui/separator"
+import { Button } from "@/components/ui/button"
+import * as React from "react"
+import Image from "next/image"
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
 
-export default function HomePage() {
-
+export default function LandingPage() {
   return (
-    
-    <div className="max-w-md w-full space-y-4">
-      <Breadcrumb>
-  <BreadcrumbList>
-    <BreadcrumbItem>
-      <BreadcrumbLink href="/">X4 Card</BreadcrumbLink>
-    </BreadcrumbItem>
-    <BreadcrumbSeparator />
-    <BreadcrumbItem>
-      <BreadcrumbLink href="/">...</BreadcrumbLink>
-    </BreadcrumbItem>
-    <BreadcrumbSeparator />
-    <BreadcrumbItem>
-      <BreadcrumbLink href="/">Brijraj Singh Bhati</BreadcrumbLink>
-    </BreadcrumbItem>
-    <BreadcrumbSeparator />
-    <BreadcrumbItem>
-      <BreadcrumbPage>Lynx</BreadcrumbPage>
-    </BreadcrumbItem>
-  </BreadcrumbList>
-</Breadcrumb>
+    <div className="max-w-md w-full mx-auto px-4 pt-12 space-y-6">
+      {/* Avatar */}
+      <div className="flex justify-center">
+        <Avatar className="w-24 h-24">
+          <AvatarImage src="/X4.png" />
+          <AvatarFallback>BS</AvatarFallback>
+        </Avatar>
+      </div>
 
-      <Avatar className="w-20 h-20 mx-auto">
-        <AvatarImage src="X4.png" />
-        <AvatarFallback>BS</AvatarFallback>
-      </Avatar>
-      <h1 className="text-xl font-bold text-center">Brijraj Singh Bhati</h1>
-      <p className="text-gray-500 text-center"><i>Dreams in Code, Builds in Full Metal</i></p>      
+      {/* Intro Text */}
+      <div className="text-center">
+        <h1 className="text-3xl font-bold">Hi, I'm Brijraj Singh Bhati</h1>
+        <p className="text-black-500 mt-2 text-sm font-light">
+          A builder, developer, and student who dreams in code and builds in full metal — crafting ideas into real, working products.
+        </p>
+      </div>
 
-      <div className="space-y-2">
-            <Card>
-              <CardHeader>
-                <CardTitle>X4 Creative</CardTitle>
-                <CardDescription>Personal Portfolio</CardDescription>
-                <CardAction>Webpage</CardAction>
-              </CardHeader>
-              <CardContent>
-                <p>X4 is a personal space where I curate and showcase my work, serving as a comprehensive portfolio that highlights my creativity, technical skills, and innovative projects.</p>
-                </CardContent>
-                <CardFooter>
-                  <Drawer>
-                    <DrawerTrigger className="w-full" asChild>
-                      <Button>Visit</Button>
-                    </DrawerTrigger>
-                    <DrawerContent>
-                      <DrawerHeader>
-                        <DrawerTitle>Proceed to Page</DrawerTitle>
-                        <DrawerDescription>X4 is a personal space where I curate and showcase my work, serving as a comprehensive portfolio that highlights my creativity, technical skills, and innovative projects.</DrawerDescription>
-                      </DrawerHeader>
-                      <DrawerFooter>
-                        <Button asChild>
-                          <a href="https://x4creative.framer.website">Proceed</a>
-                        </Button>
-                        <DrawerClose>
-                          <Button variant="outline">Cancel</Button>
-                        </DrawerClose>
-                      </DrawerFooter>
-                    </DrawerContent>
-                  </Drawer>
-                </CardFooter>
-              </Card>
+      <Separator className="my-4" />
 
-
-              <Card>
-              <CardHeader>
-                <CardTitle>X4MD</CardTitle>
-                <CardDescription>AI-Assisted Command Line Interface</CardDescription>
-                <CardAction>Software</CardAction>
-              </CardHeader>
-              <CardContent>
-                <p>X4MD is a AI-Assisted Command Line Interface written in python using Ollama's lightweight Gemma3:1b Model</p>
-                </CardContent>
-                <CardFooter>
-                  <Drawer>
-                    <DrawerTrigger className="w-full" asChild>
-                      <Button>Visit</Button>
-                    </DrawerTrigger>
-                    <DrawerContent>
-                      <DrawerHeader>
-                        <DrawerTitle>Proceed to link</DrawerTitle>
-                        <DrawerDescription asChild>
-                          <Avatar className="w-20 h-20 mx-auto">
-                            <AvatarImage src="X4MD.png" />
-                            <AvatarFallback>X4MD</AvatarFallback>
-                          </Avatar>
-                        </DrawerDescription>
-                        <DrawerDescription>X4MD is a AI-Assisted Command Line Interface written in python using Ollama's lightweight Gemma3:1b Model</DrawerDescription>
-                      </DrawerHeader>
-                      <DrawerFooter>
-                        <Button asChild>
-                          <a href="https://x4md.framer.website">Proceed</a>
-                        </Button>
-                        <DrawerClose>
-                          <Button variant="outline">Cancel</Button>
-                        </DrawerClose>
-                      </DrawerFooter>
-                    </DrawerContent>
-                  </Drawer>
-                </CardFooter>
-              </Card>
-
-
-              <Card>
-              <CardHeader>
-                <CardTitle>GPA Calculator</CardTitle>
-                <CardDescription>Calculator For NMIMS Students</CardDescription>
-                <CardAction>Tool</CardAction>
-              </CardHeader>
-              <CardContent>
-                <p>The GPA Calculator App is a smart and student-friendly tool that helps users plan their academic performance by allowing them to input their (ICA) marks and instantly calculating the minimum score needed in the (TEE) to pass or reach a specific academic threshold</p>
-                </CardContent>
-                <CardFooter>
-                  <Drawer>
-                    <DrawerTrigger className="w-full" asChild>
-                      <Button>Visit</Button>
-                    </DrawerTrigger>
-                    <DrawerContent>
-                      <DrawerHeader>
-                        <DrawerTitle>Launch Tool?</DrawerTitle>
-                        <DrawerDescription asChild>
-                          <Avatar className="w-20 h-20 mx-auto">
-                            <AvatarImage src="GPA.png" />
-                            <AvatarFallback>GPA</AvatarFallback>
-                          </Avatar>
-
-                        </DrawerDescription>
-                        <DrawerDescription>
-                          <p>The GPA Calculator App is a smart and student-friendly tool that helps users plan their academic performance</p>
-                        </DrawerDescription>
-                      </DrawerHeader>
-                      <DrawerFooter>
-                        <Button asChild>
-                          <a href="https://gpa-calculator-36.web.app/">Launch</a>
-                        </Button>
-                        <DrawerClose>
-                          <Button variant="outline">Cancel</Button>
-                        </DrawerClose>
-                      </DrawerFooter>
-                    </DrawerContent>
-                  </Drawer>
-                </CardFooter>
-              </Card>
+      {/* CTA Button */}
+      <div className="flex justify-center">
+        <Button asChild variant="secondary">
+          <a href="/lynx">Explore My Work</a>
+        </Button>
       </div>
     </div>
   )
